@@ -18,9 +18,9 @@ class CreateProductsTable extends Migration
             $table->string('name',255);
             $table->string('slug');
             $table->text('description');
-            $table->string('extract',300);
+            $table->string('extract',255);
             $table->decimal('price',5,2);
-            $table->string('image',300);
+            $table->string('image',255);
             $table->boolean('visible');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')
