@@ -1,0 +1,1 @@
+<h1>Footer de la App</h1>
