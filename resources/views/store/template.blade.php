@@ -21,5 +21,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/pinterest_grid.js')}}"></script>
+<script type="text/javascript" src="{{ asset('js/show-products.js')}}"></script>
 </body>
 </html>

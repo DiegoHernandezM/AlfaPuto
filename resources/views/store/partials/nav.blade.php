@@ -20,7 +20,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>-->
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="#"><i class="fa fa-home"></i>&nbsp; Inicio</a></li>
+      	<li><a href="{{ route('home')}}"><i class="fa fa-home"></i>&nbsp; Inicio</a></li>
       	<li><a href="#"><i class="fa fa-users"></i>&nbsp; Conocenos</a></li>
       	<li><a href="#"><i class="fa fa-envelope"></i>&nbsp; Contacto</a></li>
        <li><a href="#"><i class="fa fa-shopping-cart"></i>&nbsp; Compra hijo de puta</a></li>
