@@ -1,0 +1,23 @@
+body{
+
+}
+
+.container-fluid{
+
+	background: #2c3e50;
+	color: #FFF;
+	text-align: center;
+	position: absolute z-index;
+}
+
+.col-md-4{
+	text-align: center;
+}
+
+.avatar{
+	border: 2.5px solid #FFF;
+	border-radius: 50px;
+	float: left;
+	height: 100px;
+	width: 100px;
+}
