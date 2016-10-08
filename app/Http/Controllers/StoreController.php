@@ -18,6 +18,29 @@ class StoreController extends Controller
     return view('store.index', compact('products'));
     }
 
+
+    public function questions(){
+
+    	return view('store.questions');
+    }
+
+    public function about(){
+    	return view('store.about');
+    }
+
+    public function contact(){
+    	return view('store.contact');
+    }
+
+    public function mapsite(){
+    	return view('store.mapsite');
+    }
+
+    public function privacy(){
+    	return view('store.privacy');
+    }
+
+ 
     public function show($slug){
 
     	$product = Products::where('slug',$slug)->first();

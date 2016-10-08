@@ -16,6 +16,30 @@ Route::get('/', [
 	'uses' => 'StoreController@index'
 	]);
 
+
+Route::get('/questions', [
+	'as' => 'questions',
+	'uses' => 'StoreController@questions'
+	]);
+
+Route::get('/about', [
+	'as' => 'about',
+	'uses' => 'StoreController@about'
+	]);
+
+Route::get('/contact', [
+	'as' => 'contact',
+	'uses' => 'StoreController@contact'
+	]);
+Route::get('/mapsite', [
+	'as' => 'mapsite',
+	'uses' => 'StoreController@mapsite'
+	]);
+
+Route::get('/privacy', [
+	'as' => 'privacy',
+	'uses' => 'StoreController@privacy'
+	]);
 Route::get('product/{slug}', [
 	'as' => 'product-detail',
 	'uses' => 'StoreController@show'

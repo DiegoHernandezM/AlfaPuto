@@ -7,13 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Tienda Virtual en Linea pro papus :v</a>
+      <a class="navbar-brand" href="#">Tienda Virtual Online</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       
-     <!-- <form class="navbar-form navbar-left" role="search">
+    <!--<form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
@@ -21,21 +21,19 @@
       </form>-->
       <ul class="nav navbar-nav navbar-right">
       	<li><a href="{{ route('home')}}"><i class="fa fa-home"></i>&nbsp; Inicio</a></li>
-      	<li><a href="#"><i class="fa fa-users"></i>&nbsp; Conocenos</a></li>
-      	<li><a href="#"><i class="fa fa-envelope"></i>&nbsp; Contacto</a></li>
-       <li><a href="#"><i class="fa fa-shopping-cart"></i>&nbsp; Compra hijo de puta</a></li>
+      	<li><a href="{{ route('about')}}"><i class="fa fa-users"></i>&nbsp; Acerca de</a></li>
+      	<li><a href="{{ route('contact')}}"><i class="fa fa-envelope"></i>&nbsp; Contacto</a></li>
+       <li><a href="#"><i class="fa fa-shopping-cart"></i>&nbsp; Tus Compras</a></li>
         
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i>&nbsp; Usuarios <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Iniciar sesión</a></li>
-            <li><a href="#">Preguntas y Respuestas</a></li>
-            <li><a href="#">Mapa de sitio</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Aviso de Privacidad</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="{{ route('questions')}}">Preguntas y Respuestas</a></li>
+            <li><a href="{{ route('mapsite')}}">Mapa de sitio</a></li><hr>
+            <li><a href="{{ route('privacy')}}">Aviso de Privacidad</a></li>
+            <li></li>
           </ul>
         </li>
       </ul>

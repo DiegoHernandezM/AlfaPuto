@@ -6,20 +6,48 @@ body{
 
 	background: #2c3e50;
 	color: #FFF;
-	text-align: center;
 	position: absolute z-index;
+
+}
+.jumbotron{
+	background: #fff;
+}
+.social{
+	
+	list-style: none;
+	text-align: left;
+
+}
+.social i{
+	color: #FFF;
 }
 
+.social a{
+	color: #FFF;
+	text-decoration: none;
+}
+
+.social a:hover{
+	
+	color: #18bc9c;
+}
+.social i:hover{
+	
+	color: #18bc9c;
+}
+
+
 .col-md-4{
-	text-align: center;
+	text-align: justify;
+	display: inline-block;
 }
 
 .avatar{
 	border: 2.5px solid #FFF;
-	border-radius: 50px;
+	border-radius: 100px;
 	float: left;
-	height: 100px;
-	width: 100px;
+	height: 200px;
+	width: 200px;
 }
 
 
@@ -49,4 +77,8 @@ margin-top: -5px;
 -moz-transition: all 0.3s ease-in-out;
 -o-transition: all 0.3s ease-in-out;
 transition: all 0.3s ease-in-out;
+}
+
+.navbar{
+	margin-bottom: 0;
 }
