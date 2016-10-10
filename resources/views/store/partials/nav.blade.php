@@ -29,8 +29,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i>&nbsp; Usuarios <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Iniciar sesión</a></li>
             <li><a href="{{ route('questions')}}">Preguntas y Respuestas</a></li>
+              @include('store.partials.menu-user')
             <li><a href="{{ route('mapsite')}}">Mapa de sitio</a></li><hr>
             <li><a href="{{ route('privacy')}}">Aviso de Privacidad</a></li>
             <li></li>

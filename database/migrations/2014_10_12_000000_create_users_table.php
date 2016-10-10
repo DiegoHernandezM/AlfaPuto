@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email',50)->unique();
             $table->string('user',100);
             $table->string('password',100);
-            $table->string('type',50);
-            $table->integer('active');
-            $table->string('address',255);
+            $table->enum('type',['user','admin']);
+            $table->boolean('active');
+            $table->text('address',255);
             $table->rememberToken();
             $table->timestamps();
         });
