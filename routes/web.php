@@ -10,12 +10,15 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::bind('product', function($slug){
+    return App\Products::where('slug', $slug)->first();
+});
+
 
 Route::get('/', [
 	'as' => 'home',
 	'uses' => 'StoreController@index'
 	]);
-
 
 Route::get('/questions', [
 	'as' => 'questions',
@@ -44,3 +47,37 @@ Route::get('product/{slug}', [
 	'as' => 'product-detail',
 	'uses' => 'StoreController@show'
 	]);
+
+// Carrito -------------
+
+Route::get('cart/show', [
+		'as' => 'cart-show',
+		'uses' => 'CartController@show'
+]);
+
+Route::get('cart/add/{product}', [
+		'as' => 'cart-add',
+		'uses' => 'CartController@add'
+]);
+
+Route::get('cart/delete/{product}',[
+		'as' => 'cart-delete',
+		'uses' => 'CartController@delete'
+]);
+
+Route::get('cart/trash', [
+		'as' => 'cart-trash',
+		'uses' => 'CartController@trash'
+]);
+
+Route::get('cart/update/{product}/{quantity}', [
+    'as' => 'cart-update',
+    'uses' => 'CartController@update'
+]);
+
+Route::get('order-detail', [
+		'middleware' => 'auth:user',
+		'as' => 'order-detail',
+		'uses' => 'CartController@orderDetail'
+]);
+

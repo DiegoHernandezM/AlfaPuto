@@ -23,7 +23,7 @@
       	<li><a href="{{ route('home')}}"><i class="fa fa-home"></i>&nbsp; Inicio</a></li>
       	<li><a href="{{ route('about')}}"><i class="fa fa-users"></i>&nbsp; Acerca de</a></li>
       	<li><a href="{{ route('contact')}}"><i class="fa fa-envelope"></i>&nbsp; Contacto</a></li>
-       <li><a href="#"><i class="fa fa-shopping-cart"></i>&nbsp; Tus Compras</a></li>
+       <li><a href="{{ route('cart-show') }}"><i class="fa fa-shopping-cart"></i>&nbsp; Tus Compras</a></li>
         
         
         <li class="dropdown">
