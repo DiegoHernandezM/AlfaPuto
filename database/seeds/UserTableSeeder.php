@@ -39,5 +39,6 @@ class UserTableSeeder extends Seeder
 
         );
 
+        User::insert($data);
     }
 }
