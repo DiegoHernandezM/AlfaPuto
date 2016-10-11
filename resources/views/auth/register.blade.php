@@ -1,94 +1,82 @@
-@extends('layouts.auth')
-
-@section('htmlheader_title')
-    Register
-@endsection
+@extends('store.template')
 
 @section('content')
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default"></br></br></br></br></br>
+                <div class="panel-heading"><legend>Registrate</legend></div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                        {{ csrf_field() }}
 
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Nombre</label>
 
-    <body class="hold-transition register-page login-init">
-    <div class="register-box">
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-
-                <strong>¡Error!</strong> {{ trans('adminlte_lang::message.someproblems') }}<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <div class="register-box-body">
-            
-            <form action="{{ url('/register') }}" method="post">
-                <div class="register-logo">
-                    <a href="{{ url('/home') }}"><img src="{{ asset('/img/logo_pagina.png') }}" WIDTH=140 HEIGHT=200 ></a>
-                </div>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="{{ trans('adminlte_lang::message.fullname') }}" name="name" value="{{ old('name') }}"/>
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email" value="{{ old('email') }}"/>
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/>
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.retrypepassword') }}" name="password_confirmation"/>
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-xs-1">
-                        <label>
-                            <div class="checkbox_register icheck">
-                                <label>
-                                    <input type="checkbox" name="terms">
-                                </label>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                        </label>
-                    </div><!-- /.col -->
-                    <div class="col-xs-7">
-                        <div class="form-group">
-                            <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">Términos y Condiciones</button>
                         </div>
-                        
 
-                    </div><!-- /.col -->
-                    <div class="col-xs-6 col-xs-push-2">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">¡Registrarme!</button>
-                    </div><!-- /.col -->
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Contraseña</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirma tu contraseña</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </form></br></br></br></br></br>
                 </div>
-            </form>
-            <br>
-
-            <div class="centered">
-            <a href="{{ url('/login') }}">¡Ya tengo una cuenta!</a></div>
-        </div><!-- /.form-box -->
-    </div><!-- /.register-box -->
-
-    @include('layouts.partials.scripts_auth')
-
-    @include('auth.terms')
-
-    <script>
-        $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
-        });
-    </script>
-</body>
-
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

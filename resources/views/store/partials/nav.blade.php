@@ -20,7 +20,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>-->
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="{{ route('home')}}"><i class="fa fa-home"></i>&nbsp; Inicio</a></li>
+      	<li><a href="{{ route('index')}}"><i class="fa fa-home"></i>&nbsp; Inicio</a></li>
       	<li><a href="{{ route('about')}}"><i class="fa fa-users"></i>&nbsp; Acerca de</a></li>
       	<li><a href="{{ route('contact')}}"><i class="fa fa-envelope"></i>&nbsp; Contacto</a></li>
        <li><a href="{{ route('cart-show') }}"><i class="fa fa-shopping-cart"></i>&nbsp; Tus Compras</a></li>
@@ -30,9 +30,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i>&nbsp; Usuarios <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ route('questions')}}">Preguntas y Respuestas</a></li>
-              @include('store.partials.menu-user')
             <li><a href="{{ route('mapsite')}}">Mapa de sitio</a></li><hr>
             <li><a href="{{ route('privacy')}}">Aviso de Privacidad</a></li>
+              <li><a href="{{url('/login')}}">Iniciar sesión</a></li>
+              <li><a href="{{url('/register')}}">Registrarse</a></li>
             <li></li>
           </ul>
         </li>

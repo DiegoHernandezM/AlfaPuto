@@ -72,7 +72,7 @@ class CartController extends Controller
     // Detalle del pedido
     public function orderDetail()
     {
-        if(count(\Session::get('cart')) <= 0) return redirect()->route('home');
+        if(count(\Session::get('cart')) <= 0) return redirect()->route('index');
         $cart = \Session::get('cart');
         $total = $this->total();
 

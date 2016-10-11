@@ -47,4 +47,6 @@ class StoreController extends Controller
     	//dd($product);
     	return view('store.show', compact('product'));
     }
+
+
 }

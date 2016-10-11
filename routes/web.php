@@ -16,7 +16,7 @@ Route::bind('product', function($slug){
 
 
 Route::get('/', [
-	'as' => 'home',
+	'as' => 'index',
 	'uses' => 'StoreController@index'
 	]);
 
@@ -76,7 +76,7 @@ Route::get('cart/update/{product}/{quantity}', [
 ]);
 
 Route::get('order-detail', [
-		'middleware' => 'auth:user',
+		'middleware' => 'auth',
 		'as' => 'order-detail',
 		'uses' => 'CartController@orderDetail'
 ]);
@@ -89,12 +89,12 @@ Route::get('auth/login', [
 
 Route::post('auth/login', [
     'as' => 'login-post',
-    'uses' => 'Auth\AuthController@postLogin'
+    'uses' => 'Auth\LoginController@postLogin'
 ]);
 
 Route::get('auth/logout', [
     'as' => 'logout',
-    'uses' => 'Auth\AuthController@getLogout'
+    'uses' => 'Auth\LoginController@getLogout'
 ]);
 
 // Registration routes...
@@ -108,3 +108,7 @@ Route::post('auth/register', [
     'uses' => 'Auth\AuthController@postRegister'
 ]);
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
