@@ -57,6 +57,11 @@
                 @endforeach
                 </tbody>
             </table>
+
+                <div class="alert alert-dismissible alert-info">
+                    <strong>Toda compra conlleva un conto de envio de $100.00 MN por gastos de envio</strong>
+                </div>
+					
             <hr>
             <h3>
 					<span class="label label-success">

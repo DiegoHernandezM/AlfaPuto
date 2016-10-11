@@ -9,12 +9,14 @@
 
 </head>
 <body>
+        @if(\Session::has('message'))
+            @include('store.partials.message')
+        @endif
+        @include('store.partials.nav')
 
-@include('store.partials.nav')
+        @yield('content')
 
-@yield('content')
-
-@include('store.partials.footer')
+        @include('store.partials.footer')
 
 
 

@@ -17,15 +17,11 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->decimal('price',5,2);
             $table->integer('quantity');
-
-
             $table->integer('order_id')->unsigned();
             $table->foreign('order_id')
                   ->references('id')
                   ->on('orders')
                   ->onDelete('cascade');
-
-
             $table->integer('products_id')->unsigned();
             $table->foreign('products_id')
                   ->references('id')

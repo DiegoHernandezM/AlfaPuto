@@ -112,3 +112,17 @@ Route::post('auth/register', [
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+// Paypal
+
+// Enviamos nuestro pedido a PayPal
+Route::get('payment', array(
+    'as' => 'payment',
+    'uses' => 'PaypalController@postPayment',
+));
+
+// Después de realizar el pago Paypal redirecciona a esta ruta
+Route::get('payment/status', array(
+    'as' => 'payment.status',
+    'uses' => 'PaypalController@getPaymentStatus',
+));

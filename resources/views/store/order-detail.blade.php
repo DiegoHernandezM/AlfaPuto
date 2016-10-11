@@ -44,7 +44,7 @@
                         <i class="fa fa-chevron-circle-left"></i> Regresar
                     </a>
 
-                    <a href="" class="btn btn-warning">
+                    <a href="{{  route('payment')  }}" class="btn btn-warning">
                          <i class="fa fa-cc-paypal fa-2x"></i>
                     </a>
                 </p>
