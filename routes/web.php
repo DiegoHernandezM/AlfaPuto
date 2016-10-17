@@ -14,6 +14,10 @@ Route::bind('product', function($slug){
     return App\Products::where('slug', $slug)->first();
 });
 
+Route::bind('provider', function($providers){
+
+	return App\Providers::find($providers);
+});
 
 Route::get('/', [
 	'as' => 'index',
@@ -126,3 +130,7 @@ Route::get('payment/status', array(
     'as' => 'payment.status',
     'uses' => 'PaypalController@getPaymentStatus',
 ));
+
+//-----ADMIN
+
+Route::resource('admin/providers', 'Admin\ProvidersController');

@@ -22,10 +22,10 @@ class CreateProductsTable extends Migration
             $table->decimal('price',5,2);
             $table->string('image',255);
             $table->boolean('visible');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')
+            $table->integer('provider_id')->unsigned();
+            $table->foreign('provider_id')
                   ->references('id')
-                  ->on('categories')
+                  ->on('providers')
                   ->onDelete('cascade');
                   
 
