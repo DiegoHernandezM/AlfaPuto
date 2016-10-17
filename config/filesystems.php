@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'disks' => [
+      'disks' => [
 
         'local' => [
             'driver' => 'local',
@@ -60,6 +60,16 @@ return [
             'secret' => 'your-secret',
             'region' => 'your-region',
             'bucket' => 'your-bucket',
+        ],
+
+        'photo_slider' => [
+            'driver' => 'local',
+            'root'   => public_path('img/sliders'),
+        ],
+
+        'photo_items' => [
+            'driver' => 'local',
+            'root'   => public_path('img/sliders-item'),
         ],
 
     ],

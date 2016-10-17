@@ -134,3 +134,33 @@ Route::get('payment/status', array(
 //-----ADMIN
 
 Route::resource('admin/providers', 'Admin\ProvidersController');
+
+
+/*/---- RUTAS DEL SLIDER
+Route::get('slider', [
+                'uses' => 'SliderController@index',
+                'as' => 'admin.slider'
+            ]);
+
+            Route::post('slider', [
+                'uses' => 'SliderController@store',
+                'as' => 'admin.slider.store'
+            ]);
+
+            Route::delete('slider/{id}', [
+                'uses' => 'SliderController@destroy',
+                'as' => 'admin.slider.destroy'
+            ]);
+
+            Route::put('slider/update', [
+                'uses' => 'SliderController@update',
+                'as' => 'admin.slider.update'
+            ]);
+
+            Route::get('slider/show/{id}', [
+                'uses' => 'SliderController@show',
+                'as' => 'admin.slider.show'
+            ]);*/
+
+
+Route::resource('admin/sliders', 'Admin\SliderController');
