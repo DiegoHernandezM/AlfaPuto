@@ -35,10 +35,10 @@
 					<td>{{ $providers-> email}}</td>
 					<td>{{ $providers-> direccion}}</td>
 					<td>
-						<a href="{{ url('admin/providers/edit', $providers) }}" class="btn btn-primary"><i class="fa fa-pencil-square"></i></a>
+						<a href="{{ route('admin.providers.edit', $providers) }}" class="btn btn-primary"><i class="fa fa-pencil-square"></i></a>
 					</td>
 					<td>
-						{!! Form::open(['url' => ['admin/providers/destroy', $providers]]) !!}
+						{!! Form::open(['route' => ['admin.providers.destroy', $providers]]) !!}
         								<input type="hidden" name="_method" value="DELETE">
         								<button onClick="return confirm('Eliminar registro?')" class="btn btn-danger">
         									<i class="fa fa-trash-o"></i>

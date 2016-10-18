@@ -60,7 +60,7 @@ class SliderController extends Controller
             Image::make('img/sliders/'.$namePhotoProduct)->resize(880, 490)->save('img/sliders/'.$namePhotoProduct);
 
             if( $slider->save() ) {
-                return redirect()->route('admin.slider');
+                return redirect()->route('admin.sliders.panel-slider');
             }
 
         //}

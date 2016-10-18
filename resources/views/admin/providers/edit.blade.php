@@ -25,7 +25,7 @@
 
                      
 
-                     {!! Form::model($providers, ['url' => ['admin/providers/update', $providers]]) !!}
+                     {!! Form::model($providers, ['route' => ['admin.providers.update', $providers]]) !!}
 
                       <input type="hidden" name="_method" value="PUT">
         

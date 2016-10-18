@@ -135,6 +135,24 @@ Route::get('payment/status', array(
 
 Route::resource('admin/providers', 'Admin\ProvidersController');
 
+            
+
+             Route::get('providers/edit/{providers}', [
+                'uses' => 'Admin\ProvidersController@edit',
+                'as' => 'admin.providers.edit'
+            ]);
+
+            Route::put('providers/update/{providers}', [
+                'uses' => 'Admin\ProvidersController@update',
+                'as' => 'admin.providers.update'
+            ]);
+
+            //Eliminar proveedor
+             Route::delete('providers/delete/{providers}', [
+                'uses' => 'Admin\ProvidersController@destroy',
+                'as' => 'admin.providers.destroy'
+            ]);
+
 
 /*/---- RUTAS DEL SLIDER
 Route::get('slider', [
