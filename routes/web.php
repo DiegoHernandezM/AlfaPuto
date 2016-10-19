@@ -24,6 +24,7 @@ Route::get('/', [
 	'uses' => 'StoreController@index'
 	]);
 
+
 Route::get('/questions', [
 	'as' => 'questions',
 	'uses' => 'StoreController@questions'
@@ -133,6 +134,10 @@ Route::get('payment/status', array(
 
 //-----ADMIN
 
+/*
+ * Rutas para la seccion de proveedores
+*/
+
 Route::resource('admin/providers', 'Admin\ProvidersController');
 
             
@@ -152,6 +157,27 @@ Route::resource('admin/providers', 'Admin\ProvidersController');
                 'uses' => 'Admin\ProvidersController@destroy',
                 'as' => 'admin.providers.destroy'
             ]);
+
+/*
+ * Rutas para la seccion de productos
+*/
+
+Route::resource('admin/products', 'Admin\ProductController');
+
+Route::get('products/edit/{product}', [
+    'uses' => 'Admin\ProductController@edit',
+    'as' => 'admin.products.edit'
+]);
+
+Route::put('product/update/{product}', [
+    'uses' => 'Admin\ProductController@update',
+    'as' => 'admin.products.update'
+]);
+
+Route::delete('product/delete/{product}', [
+    'uses' => 'Admin\ProductController@destroy',
+    'as' => 'admin.product.destroy'
+]);
 
 
 /*/---- RUTAS DEL SLIDER

@@ -24,7 +24,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="{{ route('home')}}" class="btn btn-primary">
+			<a href="{{ url('index.blade.php')}}" class="btn btn-primary">
 			<i class="fa fa-chevron-circle-left"></i>&nbsp;Regresar
 			</a><br>
 		</div>

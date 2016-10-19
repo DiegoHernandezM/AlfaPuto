@@ -23,7 +23,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('admin/sliders') }}">Slider</a></li>
       	<li><a href="{{  url('admin/providers') }}"> Proveedores</a></li>
-        <li><a href="#"> Productos</a></li>
+        <li><a href="{{  url('admin/products') }}"> Productos</a></li>
         <li><a href="#"> Pedidos</a></li>
         <li><a href="#"> Usuarios</a></li>
       	<li class="dropdown">
