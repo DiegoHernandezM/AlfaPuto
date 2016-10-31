@@ -15,8 +15,8 @@ class ProductController extends Controller
     //muestra los productos que hay en la bd en products/index
     public function index()
     {
-        $products = Products::orderBy('id', 'desc')->paginate(5);
-        return view('admin.products.index', compact('products'));
+        $product = Products::orderBy('id', 'desc')->paginate(5);
+        return view('admin.products.index', compact('product'));
     }
 
     //agregamos un nuevo producto
@@ -42,8 +42,9 @@ class ProductController extends Controller
             'category_id'   => $request->get('category_id')
         ];
 
-        $products = Products::create($data);
-        return view('admin.products.index', compact('products'));
+        $product = Products::create($data);
+        return redirect()->route('admin.products.index');
+        //return view('admin.products.index', compact('product'));
     }
 
     public function show(Products $product)
@@ -53,10 +54,9 @@ class ProductController extends Controller
 
     public function edit(Products $product)
     {
-        //$categories = Providers::orderBy('id', 'desc')->lists('name', 'id');
         $providers = Providers::orderBy('id', 'desc')->pluck('name', 'id');
         $category = Category::orderBy('id', 'desc')->pluck('name', 'id');
-        return view('admin.products.edit', compact('providers', 'category',  'products'));
+        return view('admin.products.edit', compact('providers', 'category',  'product'));
     }
 
     public function update(Request $request, Products $product)
@@ -66,14 +66,15 @@ class ProductController extends Controller
         $product->visible = $request->has('visible') ? 1 : 0;
 
         $updated = $product->save();
-        return view('admin.products.index', compact('products'));
-        //return redirect()->route('admin.product.index')->with('message', $message);
+        return redirect()->route('admin.products.index');
+        //return view('admin.products.index', compact('product'));
+
     }
 
     public function destroy(Products $product)
     {
         $deleted = $product->delete();
-        
-        return view('admin.products.index', compact('products'));
+
+        return redirect()->route('admin.products.index');
     }
 }

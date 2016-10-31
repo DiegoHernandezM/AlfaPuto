@@ -113,7 +113,7 @@
 
                         <div class="form-group">
                             {!! Form::submit('Actualizar', array('class'=>'btn btn-primary')) !!}
-                        <a href="{{ url('admin/providers/index') }}" class="btn btn-warning">Cancelar</a>
+                            <a href="{{ url('admin/products') }}" class="btn btn-warning">Cancelar</a>
                     </div>
 
                     {!! Form::close() !!}

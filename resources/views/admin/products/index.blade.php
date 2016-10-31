@@ -25,25 +25,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($products as $product): ?>
-                    
-                        <tr>
+                    <?php foreach($product as  $products): ?>
+                    <tr>
 
-                            <td><img src="{{ $product->image }}" width="40"></td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->provider->name }}</td>
-                            <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->extract }}</td>
-                            <td>${{ number_format($product->price,2) }}</td>
-                            <td>{{ $product->visible == 1 ? "Si" : "No" }}</td>
+                            <td><img src="{{ $products->image }}" width="40"></td>
+                            <td>{{ $products->name }}</td>
+                            <td>{{ $products->provider->name }}</td>
+                            <td>{{ $products->category->name }}</td>
+                            <td>{{ $products->extract }}</td>
+                            <td>${{ number_format($products->price,2) }}</td>
+                            <td>{{ $products->visible == 1 ? "Si" : "No" }}</td>
 
                             <td>
-                                <a href="{{ route('admin.products.edit', $product->slug) }}" class="btn btn-primary">
+                                <a href="{{ route('admin.products.edit', $products->slug) }}" class="btn btn-primary">
                                     <i class="fa fa-pencil-square-o"></i>
                                 </a>
                             </td>
                             <td>
-                                {!! Form::open(['route' => ['admin.product.destroy', $product->slug]]) !!}
+                                {!! Form::open(['route' => ['admin.product.destroy', $products->slug]]) !!}
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button onClick="return confirm('Eliminar registro?')" class="btn btn-danger">
                                     <i class="fa fa-trash-o"></i>
@@ -56,6 +55,7 @@
                 </table>
             </div>
             <hr>
+           <?php echo $product->render(); ?>
         </div>
     </div>
 

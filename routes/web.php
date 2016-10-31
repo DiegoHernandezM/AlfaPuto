@@ -169,6 +169,10 @@ Route::resource('admin/providers', 'Admin\ProvidersController');
 
 Route::resource('admin/products', 'Admin\ProductController');
 
+Route::get('products/index', [
+    'uses' => 'Admin\ProductController@index',
+    'as' => 'admin.products.index'
+]);
 Route::get('products/edit/{product}', [
     'uses' => 'Admin\ProductController@edit',
     'as' => 'admin.products.edit'
