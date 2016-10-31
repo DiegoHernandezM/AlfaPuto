@@ -19,6 +19,11 @@ Route::bind('provider', function($providers){
 	return App\Providers::find($providers);
 });
 
+// Category dependency injection
+Route::bind('category', function($category){
+    return App\Category::find($category);
+});
+
 Route::get('/', [
 	'as' => 'index',
 	'uses' => 'StoreController@index'
@@ -177,6 +182,25 @@ Route::put('product/update/{product}', [
 Route::delete('product/delete/{product}', [
     'uses' => 'Admin\ProductController@destroy',
     'as' => 'admin.product.destroy'
+]);
+
+
+// RUTAS PARA Categorias
+Route::resource('admin/category', 'Admin\CategoryController');
+
+Route::get('category/edit/{category}', [
+    'uses' => 'Admin\CategoryController@edit',
+    'as' => 'admin.category.edit'
+]);
+
+Route::put('category/update/{category}', [
+    'uses' => 'Admin\CategoryController@update',
+    'as' => 'admin.category.update'
+]);
+
+Route::delete('category/delete/{category}', [
+    'uses' => 'Admin\CategoryController@destroy',
+    'as' => 'admin.category.destroy'
 ]);
 
 

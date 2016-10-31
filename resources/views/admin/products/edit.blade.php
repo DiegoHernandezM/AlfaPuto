@@ -26,6 +26,11 @@
                             {!! Form::select('provider_id', $providers, null, ['class' => 'form-control']) !!}
                         </div>
 
+                         <div class="form-group">
+                            <label class="control-label" for="category_id">Categoria</label>
+                            {!! Form::select('category_id', $category, null, ['class' => 'form-control']) !!}
+                        </div>
+
                         <div class="form-group">
                             <label for="name">Nombre:</label>
 

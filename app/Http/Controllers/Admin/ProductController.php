@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\SaveProductRequest;
 use App\Http\Controllers\Controller;
 use App\Products;
 use App\Providers;
+use App\Category;
 
 
 class ProductController extends Controller
@@ -23,11 +23,12 @@ class ProductController extends Controller
     public function create()
     {
         $providers = Providers::orderBy('id', 'desc')->pluck('name', 'id');
-        return view('admin.products.create', compact('providers'));
+        $category = Category::orderBy('id', 'desc')->pluck('name', 'id');
+        return view('admin.products.create', compact('providers', 'category'));
     }
 
     //guarda un nuevo producto
-    public function store(SaveProductRequest $request)
+    public function store(Request $request)
     {
         $data = [
             'name'          => $request->get('name'),
@@ -37,11 +38,12 @@ class ProductController extends Controller
             'price'         => $request->get('price'),
             'image'         => $request->get('image'),
             'visible'       => $request->has('visible') ? 1 : 0,
-            'provider_id'   => $request->get('provider_id')
+            'provider_id'   => $request->get('provider_id'),
+            'category_id'   => $request->get('category_id')
         ];
 
-        $product = Products::create($data);
-        return view('admin.products.index', compact('product'));
+        $products = Products::create($data);
+        return view('admin.products.index', compact('products'));
     }
 
     public function show(Products $product)
@@ -53,23 +55,25 @@ class ProductController extends Controller
     {
         //$categories = Providers::orderBy('id', 'desc')->lists('name', 'id');
         $providers = Providers::orderBy('id', 'desc')->pluck('name', 'id');
-        return view('admin.products.edit', compact('providers', 'product'));
+        $category = Category::orderBy('id', 'desc')->pluck('name', 'id');
+        return view('admin.products.edit', compact('providers', 'category',  'products'));
     }
 
-    public function update(SaveProductRequest $request, Products $product)
+    public function update(Request $request, Products $product)
     {
         $product->fill($request->all());
         $product->slug = str_slug($request->get('name'));
         $product->visible = $request->has('visible') ? 1 : 0;
 
         $updated = $product->save();
-        return view('admin.products.index', compact('product'));
+        return view('admin.products.index', compact('products'));
         //return redirect()->route('admin.product.index')->with('message', $message);
     }
 
     public function destroy(Products $product)
     {
         $deleted = $product->delete();
-        return view('admin.products.index', compact('product'));
+        
+        return view('admin.products.index', compact('products'));
     }
 }

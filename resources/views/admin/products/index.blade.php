@@ -16,6 +16,7 @@
                         <th>Imagen</th>
                         <th>Nombre</th>
                         <th>Proveedor</th>
+                        <th>Categoria</th>
                         <th>Extracto</th>
                         <th>Precio</th>
                         <th>Visible</th>
@@ -24,12 +25,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $product)
+                    <?php foreach($products as $product): ?>
+                    
                         <tr>
 
                             <td><img src="{{ $product->image }}" width="40"></td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->provider->name }}</td>
+                            <td>{{ $product->category->name }}</td>
                             <td>{{ $product->extract }}</td>
                             <td>${{ number_format($product->price,2) }}</td>
                             <td>{{ $product->visible == 1 ? "Si" : "No" }}</td>
@@ -48,12 +51,11 @@
                                 {!! Form::close() !!}
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
             <hr>
-            <?php echo $products->render(); ?>
         </div>
     </div>
 

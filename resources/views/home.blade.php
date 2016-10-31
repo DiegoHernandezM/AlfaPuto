@@ -12,22 +12,30 @@
         <div class="row">
             
         <div class="col-md-6">
-            <div class="panel">
-                <a href="">Slider</a><
-            </div>
-        </div>
+                <div class="panel">
+                    <i class="fa fa-list-alt icon-home"></i>
+                    <a href="{{url('admin/sliders') }}" class="btn btn-warning btn-block btn-home-admin">Slider Promociones</a>
+                </div>
+            </div> 
 
             <div class="col-md-6">
                 <div class="panel">
                     <i class="fa fa-list-alt icon-home"></i>
-                    <a href="" class="btn btn-warning btn-block btn-home-admin">Proovedores</a>
+                    <a href="{{url('admin/category') }}" class="btn btn-warning btn-block btn-home-admin">Categorias</a>
+                </div>
+            </div> 
+
+            <div class="col-md-6">
+                <div class="panel">
+                    <i class="fa fa-list-alt icon-home"></i>
+                    <a href="{{url('admin/providers') }}" class="btn btn-warning btn-block btn-home-admin">Proovedores</a>
                 </div>
             </div>       
             
             <div class="col-md-6">
                 <div class="panel">
                     <i class="fa fa-shopping-cart  icon-home"></i>
-                    <a href="" class="btn btn-warning btn-block btn-home-admin">PRODUCTOS</a>
+                    <a href="{{url('admin/products') }}" class="btn btn-warning btn-block btn-home-admin">Poductos</a>
                 </div>
             </div>
                     
@@ -38,14 +46,14 @@
             <div class="col-md-6">
                 <div class="panel">
                     <i class="fa fa-cc-paypal  icon-home"></i>
-                    <a href="" class="btn btn-warning btn-block btn-home-admin">PEDIDOS</a>
+                    <a href="" class="btn btn-warning btn-block btn-home-admin">Pedidos</a>
                 </div>
             </div> 
             
             <div class="col-md-6">
                 <div class="panel">
                     <i class="fa fa-users  icon-home"></i>
-                    <a href="" class="btn btn-warning btn-block btn-home-admin">USUARIOS</a>
+                    <a href="" class="btn btn-warning btn-block btn-home-admin">Usuarios</a>
                 </div>
             </div>
                     

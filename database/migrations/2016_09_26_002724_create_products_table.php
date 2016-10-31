@@ -26,8 +26,12 @@ class CreateProductsTable extends Migration
             $table->foreign('provider_id')
                   ->references('id')
                   ->on('providers')
-                  ->onDelete('cascade');
-                  
+                  ->onDelete('cascade');                  
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('categories')
+                  ->onDelete('cascade');      
 
             //$table->timestamps();
         });
