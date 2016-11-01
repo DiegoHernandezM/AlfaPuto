@@ -22,6 +22,7 @@ class ProvidersController extends Controller
     public function index(){
 
         $provider = Providers::all();
+
         //dd($provider);
         return view('admin.providers.index', compact('provider'));
     }
