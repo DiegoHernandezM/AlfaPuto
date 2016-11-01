@@ -7,8 +7,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Tienda Virtual Online - Dashboard</a>&nbsp; 
-      <i class="fa fa-dashboard"></i>
+      <a class="navbar-brand" href="#">Tienda Virtual Online - Panel de Administración</a>&nbsp; 
+      
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,12 +21,13 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>-->
       <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url('home') }}">Home</a></li>
         <li><a href="{{ url('admin/sliders') }}">Slider</a></li>
       	<li><a href="{{  url('admin/providers') }}"> Proveedores</a></li>
         <li><a href="{{  url('admin/products') }}"> Productos</a></li>
         <li><a href="{{  url('admin/category') }}"> Categorias</a></li>
         <li><a href="#"> Pedidos</a></li>
-        <li><a href="#"> Usuarios</a></li>
+        <li><a href="{{  url('admin/user') }}"> Usuarios</a></li>
       	<li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
           <i class="fa fa-user"></i> {{ Auth::user()->user }} <span class="caret"></span>

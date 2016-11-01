@@ -24,6 +24,12 @@ Route::bind('category', function($category){
     return App\Category::find($category);
 });
 
+// User dependency injection
+Route::bind('user', function($user){
+    return App\User::find($user);
+});
+
+
 Route::get('/', [
 	'as' => 'index',
 	'uses' => 'StoreController@index'
@@ -216,7 +222,7 @@ Route::delete('category/delete/{category}', [
 ]);
 
 
-/*/---- RUTAS DEL SLIDER
+/*/---- RUTAS DEL SLIDER*/
 Route::get('slider', [
                 'uses' => 'SliderController@index',
                 'as' => 'admin.slider'
@@ -240,7 +246,26 @@ Route::get('slider', [
             Route::get('slider/show/{id}', [
                 'uses' => 'SliderController@show',
                 'as' => 'admin.slider.show'
-            ]);*/
+            ]);
 
 
 Route::resource('admin/sliders', 'Admin\SliderController');
+
+
+//Ruta del USUARIO
+Route::resource('admin/user', 'Admin\UserController');
+
+Route::get('user/edit/{user}', [
+    'uses' => 'Admin\UserController@edit',
+    'as' => 'admin.user.edit'
+]);
+
+Route::put('user/update/{user}', [
+    'uses' => 'Admin\UserController@update',
+    'as' => 'admin.user.update'
+]);
+
+Route::delete('user/delete/{user}', [
+    'uses' => 'Admin\UserController@destroy',
+    'as' => 'admin.user.destroy'
+]);

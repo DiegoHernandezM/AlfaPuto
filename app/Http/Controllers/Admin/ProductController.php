@@ -32,6 +32,19 @@ class ProductController extends Controller
     //guarda un nuevo producto
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+          'name' => 'required',
+          'slug' => 'required',
+          'description' => 'required',
+          'extract' => 'required',
+          'price' => 'required',
+          'image' => 'required',
+          
+          
+          //'color' => 'required',
+        ]);
+
         $data = [
             'name'          => $request->get('name'),
             'slug'          => str_slug($request->get('name')),
