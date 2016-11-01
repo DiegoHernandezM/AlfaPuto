@@ -12,6 +12,12 @@ class Providers extends Model
 
     public $timestamps = false;
 
+    public function scopeName($query, $name){
+        if(trim($name) !=''){
+            $query->where(\DB::raw("CONCAT( name, '', email)"),"LIKE","%$name%");
+        }
+    }
+
     public function products()
     {
         return $this->hasMany('App\Product');

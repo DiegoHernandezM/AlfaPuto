@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades;
 use Illuminate\Http\Response;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Providers;
 
 
@@ -19,10 +17,9 @@ class ProvidersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index(Request $request){
 
-        $provider = Providers::all();
-        //dd($provider);
+        $provider = Providers::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
         return view('admin.providers.index', compact('provider'));
     }
 

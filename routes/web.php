@@ -145,23 +145,26 @@ Route::get('payment/status', array(
 
 Route::resource('admin/providers', 'Admin\ProvidersController');
 
-            
+Route::get('admin/providers',[
+    'uses' => 'Admin\ProvidersController@index',
+    'as' => 'admin.providers.index'
+]);
 
-             Route::get('providers/edit/{providers}', [
-                'uses' => 'Admin\ProvidersController@edit',
-                'as' => 'admin.providers.edit'
-            ]);
+Route::get('providers/edit/{providers}', [
+    'uses' => 'Admin\ProvidersController@edit',
+    'as' => 'admin.providers.edit'
+]);
 
-            Route::put('providers/update/{providers}', [
-                'uses' => 'Admin\ProvidersController@update',
-                'as' => 'admin.providers.update'
-            ]);
+Route::put('providers/update/{providers}', [
+    'uses' => 'Admin\ProvidersController@update',
+    'as' => 'admin.providers.update'
+]);
 
             //Eliminar proveedor
-             Route::delete('providers/delete/{providers}', [
-                'uses' => 'Admin\ProvidersController@destroy',
-                'as' => 'admin.providers.destroy'
-            ]);
+Route::delete('providers/delete/{providers}', [
+    'uses' => 'Admin\ProvidersController@destroy',
+    'as' => 'admin.providers.destroy'
+]);
 
 /*
  * Rutas para la seccion de productos
@@ -191,6 +194,11 @@ Route::delete('product/delete/{product}', [
 
 // RUTAS PARA Categorias
 Route::resource('admin/category', 'Admin\CategoryController');
+
+Route::get('admin7category',[
+    'uses' => 'Admin\CategoryController@index',
+    'as' => 'admin.category.index'
+]);
 
 Route::get('category/edit/{category}', [
     'uses' => 'Admin\CategoryController@edit',

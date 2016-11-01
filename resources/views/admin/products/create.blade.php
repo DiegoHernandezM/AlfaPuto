@@ -19,7 +19,7 @@
                         @include('admin.partials.errors')
                     @endif
 
-                        {!! Form::open(['action' => 'Admin\ProductController@store']) !!}
+                        {!! Form::open(['action' => 'Admin\ProductController@store', 'enctype' => 'multipart/form-data','files' => true ]) !!}
 
                         <div class="form-group">
                             <label class="control-label" for="provider_id">Proveedor</label>
@@ -81,6 +81,7 @@
                             <label for="price">Precio:</label>
 
                             {!!
+
                                 Form::text(
                                     'price',
                                     null,
@@ -94,17 +95,17 @@
 
                         <div class="form-group">
                             <label for="image">Imagen:</label>
-
                             {!!
-                                Form::text(
-                                    'image',
-                                    null,
-                                    array(
-                                        'class'=>'form-control',
-                                        'placeholder' => 'Ingresa la url de la imagen...',
-                                    )
-                                )
-                            !!}
+
+                               Form::text(
+                                   'image',
+                                   null,
+                                   array(
+                                       'class'=>'form-control',
+                                       'placeholder' => 'Ingresa la url de la imagen...',
+                                   )
+                               )
+                           !!}
                         </div>
 
                         <div class="form-group">

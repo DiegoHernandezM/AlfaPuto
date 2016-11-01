@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Products;
@@ -13,9 +14,10 @@ use App\Category;
 class ProductController extends Controller
 {
     //muestra los productos que hay en la bd en products/index
-    public function index()
+    public function index(Request $request)
     {
-        $product = Products::orderBy('id', 'desc')->paginate(5);
+       // dd($request->get('name'));
+        $product = Products::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
         return view('admin.products.index', compact('product'));
     }
 

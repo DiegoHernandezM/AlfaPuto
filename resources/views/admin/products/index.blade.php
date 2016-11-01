@@ -6,7 +6,16 @@
         <div class="page-header">
             <h1>Productos
                 <a href="{{ url('admin/products/create')}}" class="btn btn-warning"><i class="fa fa-plus-circle"></i>&nbsp;Agregar producto</a>
+
+                <form href="{{route('admin.products.index')}}" class="navbar-form navbar-left pull-right" role="search"  method="GET">
+                    <div class="form-group">
+                        <input class="form-control" name="name" type="text" placeholder="Pon el nombre">
+                    </div>
+                    <button type="submit" class="btn btn-default">Buscar</button>
+                </form>
+
             </h1>
+
         </div>
         <div class="page">
             <div class="table-responsive">
