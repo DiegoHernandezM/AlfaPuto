@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Products;
 use App\Providers;
 use App\Category;
+use App\Http\Controllers\Admin;
 
 
 class ProductController extends Controller
@@ -16,7 +17,6 @@ class ProductController extends Controller
     //muestra los productos que hay en la bd en products/index
     public function index(Request $request)
     {
-       // dd($request->get('name'));
         $product = Products::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
         return view('admin.products.index', compact('product'));
     }
@@ -34,18 +34,15 @@ class ProductController extends Controller
     {
 
         $this->validate($request, [
-          'name' => 'required',
+          'name' => ['required','max:30'],
           'slug' => 'required',
           'description' => 'required',
           'extract' => 'required',
-          'price' => 'required',
-          'image' => 'required',
-          
-          
-          //'color' => 'required',
+          'price' => 'required|regex:[[0-9]{1}]',
+
         ]);
 
-        $data = [
+       $data = [
             'name'          => $request->get('name'),
             'slug'          => str_slug($request->get('name')),
             'description'   => $request->get('description'),
@@ -57,9 +54,9 @@ class ProductController extends Controller
             'category_id'   => $request->get('category_id')
         ];
 
-        $product = Products::create($data);
+
+         Products::create($data);
         return redirect()->route('admin.products.index');
-        //return view('admin.products.index', compact('product'));
     }
 
     public function show(Products $product)

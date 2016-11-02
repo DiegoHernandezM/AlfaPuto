@@ -11,10 +11,10 @@ class Products extends Model
 
     protected $fillable = ['name', 'slug', 'description', 'extract', 'image', 'visible', 'price', 'provider_id', 'category_id'];
 
-   /* public function setImageAttribute($image){
-
+    /*public function setPathAttribute($image){
+        $this->attributes['image']=Carbon::now()->second.$image->getClientOriginalName();
+        dd($this->attributes['image']);
         $name = Carbon::now()->second.$image->getClientOriginalName();
-        $this->attributes['image'] = $name;
         \Storage::disk('local')->put($name, \File::get($image));
     }*/
     public function scopeName($query, $name){

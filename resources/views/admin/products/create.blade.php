@@ -19,7 +19,7 @@
                         @include('admin.partials.errors')
                     @endif
 
-                        {!! Form::open(['action' => 'Admin\ProductController@store', 'enctype' => 'multipart/form-data','files' => true ]) !!}
+                        {!! Form::open(['route' => 'admin.products.store', 'enctype' => 'multipart/form-data','files' => true, 'method'=> 'POST' ]) !!}
 
                         <div class="form-group">
                             <label class="control-label" for="provider_id">Proveedor</label>
@@ -28,7 +28,7 @@
 
                           <div class="form-group">
                             <label class="control-label" for="category_id">Categoria</label>
-                           
+
                             {!! Form::select('category_id', $category, null, ['class' => 'form-control']) !!}
                         </div>
 
@@ -102,7 +102,8 @@
                                    null,
                                    array(
                                        'class'=>'form-control',
-                                       'placeholder' => 'Ingresa la url de la imagen...',
+                                       'placeholder' => 'Ingresa la URL de la imagen',
+
                                    )
                                )
                            !!}

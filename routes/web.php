@@ -187,6 +187,11 @@ Route::get('products/edit/{product}', [
     'as' => 'admin.products.edit'
 ]);
 
+Route::post('product/store', [
+    'uses' => 'Admin\ProductController@store',
+    'as' => 'admin.products.store'
+]);
+
 Route::put('product/update/{product}', [
     'uses' => 'Admin\ProductController@update',
     'as' => 'admin.products.update'
