@@ -35,11 +35,6 @@ class ProductController extends Controller
 
         $this->validate($request, [
           'name' => 'required',
-          'slug' => 'required',
-          'description' => 'required',
-          'extract' => 'required',
-          'price' => 'required',
-          'image' => 'required',
           
           
           //'color' => 'required',
@@ -59,6 +54,7 @@ class ProductController extends Controller
 
         $product = Products::create($data);
         return redirect()->route('admin.products.index');
+        
         //return view('admin.products.index', compact('product'));
     }
 

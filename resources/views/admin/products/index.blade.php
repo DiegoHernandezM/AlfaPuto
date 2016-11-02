@@ -9,7 +9,7 @@
 
                 <form href="{{route('admin.products.index')}}" class="navbar-form navbar-left pull-right" role="search"  method="GET">
                     <div class="form-group">
-                        <input class="form-control" name="name" type="text" placeholder="Pon el nombre">
+                        <input class="form-control" name="name" type="text" placeholder="Pon el nombre" required="">
                     </div>
                     <button type="submit" class="btn btn-default">Buscar</button>
                 </form>

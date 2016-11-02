@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="price">Precio:</label>
+                            <label for="price">Precio: <strong>(*)</strong></label>
 
                             {!!
 
@@ -94,7 +94,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="image">Imagen:</label>
+                            <label for="image">Imagen: </label>
+                            <label><i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Por el momento tu E-Commerce necesita de un link para poder visualizar la imagen del producto.</strong> Estamos trabajando para proveer los mejores servicios
+                            </label>
                             {!!
 
                                Form::text(

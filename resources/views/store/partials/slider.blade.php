@@ -19,21 +19,22 @@
     <div class="item active">
       <img src="http://www.exclusivetailorpatong.com/photos/slider/slider3.jpg" width="1900px" height="400px">
       <div class="carousel-caption">
-        <h1>No seas noob :v</h1>
+        <h1>Bienvenido a Tienda Virtual en Linea</h1>
       </div>
     </div>
     <div class="item">
       <img src="http://www.exclusivetailorpatong.com/photos/slider/slider3.jpg" width="1900px" height="400px">
       <div class="carousel-caption">
-       <p><h1> Me vas a laguear</h1></p>
-       <p><h3>Niño rata :v</h3></p>
+       <p><h1> Aprovecha los descuentos</h1></p>
+       <p><h4>*Aplica restricciones</h4></p>
       </div>
     </div>
 
     <div class="item">
       <img src="http://www.exclusivetailorpatong.com/photos/slider/slider3.jpg" width="1900px" height="400px">
       <div class="carousel-caption">
-       <h1> Ayudame papu :v</h1>
+       <h1> Nuevos productos de temporada</h1>
+       <h3> ¡Compra Ya!</h3>
       </div>
     </div>
     

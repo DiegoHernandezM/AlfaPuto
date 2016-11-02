@@ -52,13 +52,14 @@
                         </div>
                         
                           <div class="form-group">
-                            <label for="description">Telefono:</label>
+                            <label for="description">Telefono: <strong>(*)</strong></label>
                             
                             {!! Form::text('telefono', null, array('class'=>'form-control'))!!}
+
                         </div>
                         
                           <div class="form-group">
-                            <label for="description">Celular:</label>
+                            <label for="description">Celular: <strong>(*)</strong></label>
                             
                             {!! Form::text('celular', null, array('class'=>'form-control'))!!}
                         </div>

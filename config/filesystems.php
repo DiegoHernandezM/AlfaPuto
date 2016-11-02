@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => public_path('img'),
+            'root' => public_path('img/sliders'),
         ],
 
         'public' => [
@@ -62,7 +62,7 @@ return [
             'bucket' => 'your-bucket',
         ],
 
-        'photo_slider' => [
+       /* 'photo_slider' => [
             'driver' => 'local',
             'root'   => public_path('img/sliders'),
         ],
@@ -70,7 +70,7 @@ return [
         'photo_items' => [
             'driver' => 'local',
             'root'   => public_path('img/sliders-item'),
-        ],
+        ],*/
 
     ],
 

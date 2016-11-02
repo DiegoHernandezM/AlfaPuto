@@ -36,6 +36,7 @@ class SliderController extends Controller
     public function create()
     {
         //
+        return view('admin.panel-slider.create');
     }
 
     /**
@@ -48,10 +49,8 @@ class SliderController extends Controller
 
         $filePhotoSlider = $request->file('img_name');
 
-       // if ($filePhotoSlider != null) {
-
-            $namePhotoProduct = 'slider-' . \Auth::user()->id . Carbon::now()->second . '-' . $filePhotoSlider->getClientOriginalName();
-            \Storage::disk('photo_slider')->put($namePhotoProduct, \File::get($filePhotoSlider));
+            $namePhotoProduct = 'slider-' . Carbon::now()->second . '-' . $filePhotoSlider->getClientOriginalName();
+            \Storage::disk('local')->put($namePhotoProduct, \File::get($filePhotoSlider));
 
             $slider = new Slider();
             $slider->fill($request->all());
@@ -60,22 +59,22 @@ class SliderController extends Controller
             Image::make('img/sliders/'.$namePhotoProduct)->resize(880, 490)->save('img/sliders/'.$namePhotoProduct);
 
             if( $slider->save() ) {
-                return redirect()->route('admin.sliders.panel-slider');
+                return redirect()->route('admin.sliders.index');
+
             }
 
-        //}
-
+           
         // abort(500);
+
     }
 /**
      * Elimina un Slider del sistema
      * mediante su identificador
      * @param $id
      */
-    public function destroy($id) {
-        Slider::destroy($id);
-        Session::flash('message', 'El Slider fue eliminado.');
-        return redirect()->route('admin.slider');
+    public function destroy(Request $request, Slider $slider) {
+        $deleted = $slider->delete();
+        return redirect()->route('admin.sliders.index');
     }
 
 
@@ -86,9 +85,9 @@ class SliderController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Slider $slider)
     {
-
+        return view('admin.sliders.edit', compact('slider'));
     }
 
     /**
@@ -98,7 +97,7 @@ class SliderController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Slider $slider)
     {
         $id = $request->idUp;
         DB::beginTransaction();
@@ -110,30 +109,28 @@ class SliderController extends Controller
             if ($filePhotoSlider != null) {
 
                 $namePhotoProduct = 'slider-' . \Auth::user()->id . Carbon::now()->second . '-' . $filePhotoSlider->getClientOriginalName();
-                \Storage::disk('photo_slider')->put($namePhotoProduct, \File::get($filePhotoSlider));
+                \Storage::disk('local')->put($namePhotoProduct, \File::get($filePhotoSlider));
                 
                 $slider->fill($request->all());
                 $slider->img_name = $namePhotoProduct;
 
-                Image::make('media/photo-slider/'.$namePhotoProduct)->resize(880, 490)->save('media/photo-slider/'.$namePhotoProduct);
+                Image::make('img/sliders/'.$namePhotoProduct)->resize(880, 490)->save('img/sliders/'.$namePhotoProduct);
 
                 if( $slider->save() ) {
                     Session::flash('message', 'Slider actualizado.');
                     DB::commit();
-                    return redirect()->route('admin.slider');
+                    return redirect()->route('admin.slider.index');
                 }
             }
         } catch (\Exception $e) {
             DB::rollback();
             Session::flash('message', 'Ocurrio un problema');
-            return redirect()->route('admin.slider');
+            return redirect()->route('admin.slider.index');
         }
     }
 
-    public function show($id)
+    public function show()
     {
-        return Slider::where('id', $id)
-            ->select('*')
-            ->get();
+        
     }
 }

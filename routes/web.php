@@ -29,6 +29,10 @@ Route::bind('user', function($user){
     return App\User::find($user);
 });
 
+// Slider dependency injection
+Route::bind('slider', function($slider){
+    return App\Slider::find($slider);
+});
 
 Route::get('/', [
 	'as' => 'index',
@@ -201,7 +205,7 @@ Route::delete('product/delete/{product}', [
 // RUTAS PARA Categorias
 Route::resource('admin/category', 'Admin\CategoryController');
 
-Route::get('admin7category',[
+Route::get('admin/category',[
     'uses' => 'Admin\CategoryController@index',
     'as' => 'admin.category.index'
 ]);
@@ -223,33 +227,31 @@ Route::delete('category/delete/{category}', [
 
 
 /*/---- RUTAS DEL SLIDER*/
-Route::get('slider', [
-                'uses' => 'SliderController@index',
-                'as' => 'admin.slider'
-            ]);
-
-            Route::post('slider', [
-                'uses' => 'SliderController@store',
-                'as' => 'admin.slider.store'
-            ]);
-
-            Route::delete('slider/{id}', [
-                'uses' => 'SliderController@destroy',
-                'as' => 'admin.slider.destroy'
-            ]);
-
-            Route::put('slider/update', [
-                'uses' => 'SliderController@update',
-                'as' => 'admin.slider.update'
-            ]);
-
-            Route::get('slider/show/{id}', [
-                'uses' => 'SliderController@show',
-                'as' => 'admin.slider.show'
-            ]);
-
 
 Route::resource('admin/sliders', 'Admin\SliderController');
+
+Route::get('admin/sliders',[
+    'uses' => 'Admin\SliderController@index',
+    'as' => 'admin.sliders.index'
+]);
+
+Route::get('sliders/edit/{slider}', [
+    'uses' => 'Admin\SliderController@edit',
+    'as' => 'admin.sliders.edit'
+]);
+
+Route::put('sliders/update/{slider}', [
+    'uses' => 'Admin\SliderController@update',
+    'as' => 'admin.sliders.update'
+]);
+
+Route::delete('sliders/delete/{slider}', [
+    'uses' => 'Admin\SliderController@destroy',
+    'as' => 'admin.sliders.destroy'
+]);
+
+
+
 
 
 //Ruta del USUARIO
