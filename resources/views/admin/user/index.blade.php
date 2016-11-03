@@ -8,6 +8,12 @@
                 <a href="{{ url('admin/user/create') }}" class="btn btn-warning">
                     <i class="fa fa-plus-circle"></i> Usuario
                 </a>
+                <form href="{{route('admin.user.index')}}" class="navbar-form navbar-left pull-right" role="search"  method="GET">
+                    <div class="form-group">
+                        <input class="form-control" name="name" type="text" placeholder="Pon el nombre">
+                    </div>
+                    <button type="submit" class="btn btn-default">Buscar</button>
+                </form>
             </h1>
         </div>
         

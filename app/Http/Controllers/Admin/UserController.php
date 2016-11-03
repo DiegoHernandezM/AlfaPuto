@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades;
 use App\Http\Requests;
 use App\Http\Requests\SaveUserRequest;
 use App\Http\Controllers\Controller;
@@ -16,9 +16,10 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::orderBy('name')->paginate(5);
+       // $provider = Providers::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
+        $users = User::orderBy('id', 'desc')->paginate(5);
         //dd($users);
         return view('admin.user.index', compact('users'));
     }

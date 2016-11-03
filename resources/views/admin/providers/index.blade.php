@@ -6,7 +6,7 @@
 	<div class="page-header">
 		<h1>Proveedores <script type="text/javascript"></script>
 		<a href="{{ url('admin/providers/create')}}" class="btn btn-warning"><i class="fa fa-plus-circle"></i>&nbsp;Agregar proveedor</a>
-            <form href="{{route('admin.providers.index')}}" class="navbar-form navbar-left pull-right" role="search"  method="GET">
+            <form  class="navbar-form navbar-left pull-right" role="search"  method="GET">
                 <div class="form-group">
                     <input class="form-control" name="name" type="text" placeholder="Pon el nombre" required="" >
                 </div>

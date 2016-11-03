@@ -262,6 +262,11 @@ Route::delete('sliders/delete/{slider}', [
 //Ruta del USUARIO
 Route::resource('admin/user', 'Admin\UserController');
 
+Route::get('user/index', [
+    'uses' => 'Admin\UserController@index',
+    'as' => 'admin.user.index'
+]);
+
 Route::get('user/edit/{user}', [
     'uses' => 'Admin\UserController@edit',
     'as' => 'admin.user.edit'
