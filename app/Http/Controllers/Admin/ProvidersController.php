@@ -22,9 +22,8 @@ class ProvidersController extends Controller
 
         $provider = Providers::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
 
-        $provider = Providers::all();
+        //$provider = Providers::all();
 
-        //dd($provider);
         return view('admin.providers.index', compact('provider'));
     }
 
