@@ -41,11 +41,15 @@
                 </h3><hr>
                 <p>
                     <a href="{{ route('cart-show') }}" class="btn btn-primary">
-                        <i class="fa fa-chevron-circle-left"></i> Regresar
+                        <i class="fa fa-chevron-circle-left fa-2x"></i> Regresar
                     </a>
 
                     <a href="{{  route('payment')  }}" class="btn btn-warning">
-                         <i class="fa fa-cc-paypal fa-2x"></i>
+                         <i class="fa fa-paypal fa-2x"></i> PayPal
+                    </a>
+
+                    <a href="{{  url('pdf-factura')  }}" class="btn btn-danger">
+                         <i class="fa fa-download fa-2x" aria-hidden="true"></i> Generar Factura
                     </a>
                 </p>
             </div>

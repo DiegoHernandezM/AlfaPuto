@@ -285,3 +285,9 @@ Route::delete('user/delete/{user}', [
     'uses' => 'Admin\UserController@destroy',
     'as' => 'admin.user.destroy'
 ]);
+
+//Generar PDF
+Route::get('pdf-factura', [
+    'uses' => 'PdfController@invoice',
+    'as' => 'pdf.index'
+]);
