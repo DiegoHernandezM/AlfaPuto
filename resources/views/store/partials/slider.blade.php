@@ -15,6 +15,17 @@
   </ol>
 
   <!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+   <?php foreach ($sliders as $slider): ?>
+    <div class="panel-slider-container-item containerId" data-slider="{{$slider->id}}">
+
+    <img src="../img/sliders/{{ $slider->img_name}}" width="60x" height="60px">
+
+    </div>
+  <?php endforeach ?>
+   </div>
+    </div>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <img src="http://www.exclusivetailorpatong.com/photos/slider/slider3.jpg" width="1900px" height="400px">

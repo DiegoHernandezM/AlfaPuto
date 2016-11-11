@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Products;
+use App\Slider;
+
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 
 class StoreController extends Controller
 {
@@ -14,10 +20,10 @@ class StoreController extends Controller
     public function index(){
 
     	$products = Products::all();
+        $sliders = Slider::all();
     	//dd($products);
-    return view('store.index', compact('products'));
+    return view('store.index', compact('products', 'sliders'));
     }
-
 
     public function questions(){
 
