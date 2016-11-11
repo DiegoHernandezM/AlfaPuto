@@ -1,6 +1,5 @@
 @extends('store.template')
 @section('content')
-<hr>
 <div id="slider" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -23,8 +22,7 @@
   
    </div>
     <?php endforeach ?>
-
-
+    
   <!-- Controls -->
   <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
     <span class="sr-only">Previous</span>
