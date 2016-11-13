@@ -49,6 +49,21 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="extract">Slug: <strong>(Ejemplo: playera-01)</strong></label>
+
+                            {!!
+                                Form::text(
+                                    'slug',
+                                    null,
+                                    array(
+                                        'class'=>'form-control',
+                                        'placeholder' => 'Debe contener el valor que tendra el link del producto...',
+                                    )
+                                )
+                            !!}
+                        </div>
+
+                        <div class="form-group">
                             <label for="extract">Extracto:</label>
 
                             {!!
@@ -94,36 +109,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="image">Imagen: </label>
-                            <label><i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Por el momento tu E-Commerce necesita de un link para poder visualizar la imagen del producto.</strong> Estamos trabajando para proveer los mejores servicios
-                            </label>
-                            {!!
-
-                               Form::text(
-                                   'image',
-                                   null,
-                                   array(
-                                       'class'=>'form-control',
-                                       'placeholder' => 'Ingresa la URL de la imagen',
-
-                                   )
-                               )
-                           !!}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="visible">Visible:</label>
-
-                            {!!
-                                Form::checkbox(
-                                    'visible',
-                                    null,
-                                    array(
-                                        'class'=>'form-control',
-                                    )
-                                )
-                            !!}
-                        </div>
+                                <label for="image">Imagen:</label>
+                              
+                                    {!! Form::file('image', ['accept' => 'image/jpg,image/png', 'id' => 'image', 'class' => 'form-control', 'required']) !!}
+                            
+                            </div>
 
                         <div class="form-group">
                             {!! Form::submit('Guardar', array('class'=>'btn btn-primary')) !!}

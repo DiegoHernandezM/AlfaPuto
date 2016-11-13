@@ -5,7 +5,7 @@ use Carbon\Carbon;
 class Products extends Model
 {
     protected $table = 'products';
-    protected $fillable = ['name', 'slug', 'description', 'extract', 'image', 'visible', 'price', 'provider_id', 'category_id'];
+    protected $fillable = ['name', 'slug', 'description', 'extract', 'image','price', 'provider_id', 'category_id'];
     /*public function setPathAttribute($image){
         $this->attributes['image']=Carbon::now()->second.$image->getClientOriginalName();
         dd($this->attributes['image']);

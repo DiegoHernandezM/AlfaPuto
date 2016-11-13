@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 use App\Products;
 use App\Providers;
 use App\Category;
@@ -35,27 +39,29 @@ class ProductController extends Controller
 
         $this->validate($request, [
           'name' => 'required',
-          
-          
-          //'color' => 'required',
+          'slug' => 'required',
+          'description' => 'required',
+          'extract' => 'required',
+          'image' => 'required',
+          'price' => 'required',
+
         ]);
+            $filePhotoSlider = $request->file('image');
 
-        $data = [
-            'name'          => $request->get('name'),
-            'slug'          => str_slug($request->get('name')),
-            'description'   => $request->get('description'),
-            'extract'       => $request->get('extract'),
-            'price'         => $request->get('price'),
-            'image'         => $request->get('image'),
-            'visible'       => $request->has('visible') ? 1 : 0,
-            'provider_id'   => $request->get('provider_id'),
-            'category_id'   => $request->get('category_id')
-        ];
+            $namePhotoProduct = 'product-' . Carbon::now()->second . '-' . $filePhotoSlider->getClientOriginalName();
+            \Storage::disk('local-products')->put($namePhotoProduct, \File::get($filePhotoSlider));
 
-        $product = Products::create($data);
-        return redirect()->route('admin.products.index');
-        
-        //return view('admin.products.index', compact('product'));
+            $product = new Products();
+            $product->fill($request->all());
+            $product->image = $namePhotoProduct;
+
+            Image::make('img/products/'.$namePhotoProduct)->resize(280, 380)->save('img/products/'.$namePhotoProduct);
+
+            if( $product->save() ) {
+                return redirect()->route('admin.products.index');
+
+            }
+
     }
 
     public function show(Products $product)
@@ -74,7 +80,6 @@ class ProductController extends Controller
     {
         $product->fill($request->all());
         $product->slug = str_slug($request->get('name'));
-        $product->visible = $request->has('visible') ? 1 : 0;
 
         $updated = $product->save();
         return redirect()->route('admin.products.index');

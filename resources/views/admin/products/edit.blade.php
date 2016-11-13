@@ -94,21 +94,7 @@
                         <div class="form-group">
                             <label for="image">Imagen:</label>
 
-                            {!!
-                                Form::text(
-                                    'image',
-                                    null,
-                                    array(
-                                        'class'=>'form-control',
-                                        'placeholder' => 'Ingresa la url de la imagen...',
-                                    )
-                                )
-                            !!}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="visible">Visible:</label>
-                            <input type="checkbox" name="visible" {{ $product->visible == 1 ? "checked='checked'" : '' }}>
+                           
                         </div>
 
                         <div class="form-group">

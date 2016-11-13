@@ -37,7 +37,7 @@
                     <?php foreach($product as  $products): ?>
                     <tr>
 
-                            <td><img src="{{ $products->image }}" width="40"></td>
+                            <td><img src="../img/products/{{ $products->image}}" width="40"></td>
                             <td>{{ $products->name }}</td>
                             <td>{{ $products->provider->name }}</td>
                             <td>{{ $products->category->name }}</td>
