@@ -28,7 +28,6 @@
                         <th>Categoria</th>
                         <th>Extracto</th>
                         <th>Precio</th>
-                        <th>Visible</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -43,7 +42,6 @@
                             <td>{{ $products->category->name }}</td>
                             <td>{{ $products->extract }}</td>
                             <td>${{ number_format($products->price,2) }}</td>
-                            <td>{{ $products->visible == 1 ? "Si" : "No" }}</td>
 
                             <td>
                                 <a href="{{ route('admin.products.edit', $products->slug) }}" class="btn btn-primary">
