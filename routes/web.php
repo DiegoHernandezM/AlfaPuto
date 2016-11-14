@@ -94,7 +94,7 @@ Route::get('cart/trash', [
 		'uses' => 'CartController@trash'
 ]);
 
-Route::get('cart/update/{product}/{quantity}/', [
+Route::get('cart/update/{product}/{quantity?}', [
     'as' => 'cart-update',
     'uses' => 'CartController@update'
 ]);

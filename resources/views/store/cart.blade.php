@@ -41,7 +41,7 @@
                             <a
                                     href="#"
                                     class="btn btn-warning btn-update-item"
-                                    data-href=""
+                                    data-href="{{ route('cart-update', $item->slug) }}"
                                     data-id = "{{ $item->id }}"
                             >
                                 <i class="fa fa-refresh"></i>
