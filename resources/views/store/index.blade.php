@@ -9,19 +9,33 @@
   </ol>
 
   <!-- Wrapper for slides -->
-  <?php foreach ($sliders as $slider): ?>
+  
+  @forelse ($sliders as $slider)
 <div class="carousel-inner" role="listbox" data-slider="{{$slider->id}}">
     <div class="item active"> 
     <img src="../img/sliders/{{ $slider->img_name}}" width="1900px" height="400px">
      <div class="carousel-caption">
         <p><h1> {{ $slider->title }}</h1></p>
        <p><h4>{{ $slider->dec }}</h4></p>
-      </div>
+     </div>
 
     </div>
   
-   </div>
-    <?php endforeach ?>
+</div>
+
+@empty
+<div class="carousel-inner" role="listbox" >
+    <div class="item active"> 
+    <img src="{{ url('img/sliders/sider_null.jpg') }}" width="1900px" height="400px">
+     <div class="carousel-caption">
+        <p><h1> Bienvenido</h1></p>
+     </div>
+
+    </div>
+  
+</div>
+
+    @endforelse 
     
   <!-- Controls -->
   <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
