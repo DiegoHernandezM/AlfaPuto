@@ -44,6 +44,10 @@
                             <div class="col-md-6">
                                 <input id="name" type="textarea" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
 
+
+                                {!! Form::select('state', states, null, ['class' => 'form-control']) !!}
+                                {!! Form::select('town',['placeholder'=>'Selecciona'],null,['id'=>'town']) !!}
+
                                 @if ($errors->has('address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('address') }}</strong>
