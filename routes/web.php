@@ -291,3 +291,6 @@ Route::get('pdf-factura', [
     'uses' => 'PdfController@invoice',
     'as' => 'pdf.index'
 ]);
+
+//Rutas de correo
+Route::resource('mail', 'MailController');
