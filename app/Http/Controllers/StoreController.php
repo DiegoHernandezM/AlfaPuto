@@ -21,8 +21,8 @@ class StoreController extends Controller
 
 
         $products = Products::inRandomOrder()->get();
+
         $sliders = Slider::all();
-    	//dd($products);
     return view('store.index', compact('products', 'sliders'));
     }
 
