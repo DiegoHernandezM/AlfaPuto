@@ -264,6 +264,16 @@ Route::delete('sliders/delete/{slider}', [
 
 
 //Ruta del USUARIO
+
+Route::resource('states','StateController');
+Route::get('states',[
+    'uses' => 'StateController@index',
+    'as' => 'states'
+]);
+
+Route::get('towns/{id}','StateController@getTowns');
+
+
 Route::resource('admin/user', 'Admin\UserController');
 
 Route::get('user/index', [
