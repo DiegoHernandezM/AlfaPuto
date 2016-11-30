@@ -20,8 +20,8 @@ class ProductController extends Controller
     //muestra los productos que hay en la bd en products/index
     public function index(Request $request)
     {
-       // dd($request->get('name'));
-        $product = Products::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
+       // dd($request->get('name'));inRandomOrder()
+        $product = Products::name($request->get('name'))->inRandomOrder()->paginate(5);
         return view('admin.products.index', compact('product'));
     }
 

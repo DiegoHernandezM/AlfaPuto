@@ -19,7 +19,8 @@ class StoreController extends Controller
     //
     public function index(){
 
-    	$products = Products::all();
+
+        $products = Products::inRandomOrder()->get();
         $sliders = Slider::all();
     	//dd($products);
     return view('store.index', compact('products', 'sliders'));

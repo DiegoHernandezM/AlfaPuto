@@ -20,7 +20,7 @@
         <h1 class="modal-title" id="myModalLabel">¿Quienes somos?</h1>
       </div>
       <div class="modal-body text-right">
-        <p><h2><img class="avatar" src="{{ asset('img/pedro.jpeg')}}">Una empresa 100% comprometida con la satisfacción del cliente, nuestros productos tienen la más alta calidad</h2></p>
+        <p><h2><img class="avatar" src="{{ asset('img/vcode.png')}}">Una empresa 100% comprometida con la satisfacción del cliente, nuestros productos tienen la más alta calidad</h2></p>
         <p><h2>Para nosotros nuestro primer deber es con el cliente, ofreciendo siempre nuevos productos y a los mejores precios.</h2></p>
       </div>
       <div class="modal-footer">
