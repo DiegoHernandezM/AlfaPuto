@@ -12,20 +12,20 @@
 
 
      <div class="form-group">
-      <label for="inputName" class="col-lg-2 control-label">Nombre <strong>*</strong></label>
-          {!!Form::text('name',null,['required' => 'required', 'placeholder' => 'Nombre'])!!}
+      <label for="inputName">Nombre <strong>*</strong></label>
+          {!!Form::text('name',null,['required' => 'required', 'placeholder' => 'Nombre', 'class' => 'form-control'])!!}
      </div>
 
      <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email <strong>*</strong></label>
+      <label for="inputEmail">Email <strong>*</strong></label>
 
-          {!!Form::email('email',null,['placeholder' => 'Email', 'required' => 'required'])!!}
+          {!!Form::email('email',null,['placeholder' => 'Email', 'required' => 'required', 'class' => 'form-control'])!!}
      </div>
 
-     <div class="form-group text_center">
-      <label for="textArea" class="col-lg-2 control-label">Para poder resolver tus dudas, escribe aqui tu mensaje<strong>*</strong></label>
+     <div class="form-group">
+      <label for="textArea">Para poder resolver tus dudas, escribe aqui tu mensaje<strong>*</strong></label>
 
-          {!!Form::textarea('mensaje',null,['placeholder' => 'Mensaje', 'required' => 'required'])!!}
+          {!!Form::textarea('mensaje',null,['placeholder' => 'Mensaje', 'required' => 'required', 'class' => 'form-control'])!!}
           </br>
 
          {!! Form::submit('Enviar', array('class'=>'btn btn-primary')) !!}

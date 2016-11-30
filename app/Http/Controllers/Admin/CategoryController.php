@@ -15,6 +15,7 @@ class CategoryController extends Controller
      *
      * @return Response
      */
+    
     public function index(Request $request)
     {
         $categories = Category::name($request->get('name'))->orderBy('id', 'desc')->paginate(5);
