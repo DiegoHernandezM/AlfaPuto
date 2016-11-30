@@ -17,7 +17,7 @@ class MailController extends Controller
             $msj->subject('Correo de Contacto');
             $msj->to('tsu.diego.hdezm@gmail.com');
         });
-        Session::flash('message','Mensahe enviado correctamente');
+        Session::flash('message','Mensaje enviado correctamente');
         return view('store.contact');
     }
 }

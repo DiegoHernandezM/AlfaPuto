@@ -108,28 +108,28 @@ Route::get('order-detail', [
 // Authentication routes...
 Route::get('auth/login', [
     'as' => 'login-get',
-    'uses' => 'Auth\AuthController@getLogin'
+    'uses' => 'Auth\LoginController@getLogin'
 ]);
 
 Route::post('auth/login', [
-    'as' => 'login-post',
+     'as' => 'login-post',
     'uses' => 'Auth\LoginController@postLogin'
 ]);
 
 Route::get('auth/logout', [
-    'as' => 'logout',
+      'as' => 'logout',
     'uses' => 'Auth\LoginController@getLogout'
 ]);
 
 // Registration routes...
 Route::get('auth/register', [
     'as' => 'register-get',
-    'uses' => 'Auth\AuthController@getRegister'
+    'uses' => 'Auth\RegistrerController@getRegister'
 ]);
 
 Route::post('auth/register', [
     'as' => 'register-post',
-    'uses' => 'Auth\AuthController@postRegister'
+    'uses' => 'Auth\RegisterController@postRegister'
 ]);
 
 
@@ -157,26 +157,28 @@ Route::get('payment/status', array(
  * Rutas para la seccion de proveedores
 */
 
-Route::resource('admin/providers', 'Admin\ProvidersController');
+Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function(){
 
-Route::get('admin/providers',[
-    'uses' => 'Admin\ProvidersController@index',
+Route::resource('providers', 'ProvidersController');
+
+Route::get('providers',[
+    'uses' => 'ProvidersController@index',
     'as' => 'admin.providers.index'
 ]);
 
 Route::get('providers/edit/{providers}', [
-    'uses' => 'Admin\ProvidersController@edit',
+    'uses' => 'ProvidersController@edit',
     'as' => 'admin.providers.edit'
 ]);
 
 Route::put('providers/update/{providers}', [
-    'uses' => 'Admin\ProvidersController@update',
+    'uses' => 'ProvidersController@update',
     'as' => 'admin.providers.update'
 ]);
 
             //Eliminar proveedor
 Route::delete('providers/delete/{providers}', [
-    'uses' => 'Admin\ProvidersController@destroy',
+    'uses' => 'ProvidersController@destroy',
     'as' => 'admin.providers.destroy'
 ]);
 
@@ -184,107 +186,105 @@ Route::delete('providers/delete/{providers}', [
  * Rutas para la seccion de productos
 */
 
-Route::resource('admin/products', 'Admin\ProductController');
+Route::resource('products', 'ProductController');
 
 Route::get('products/index', [
-    'uses' => 'Admin\ProductController@index',
+    'uses' => 'ProductController@index',
     'as' => 'admin.products.index'
 ]);
 Route::get('products/edit/{product}', [
-    'uses' => 'Admin\ProductController@edit',
+    'uses' => 'ProductController@edit',
     'as' => 'admin.products.edit'
 ]);
 
 Route::post('product/store', [
-    'uses' => 'Admin\ProductController@store',
+    'uses' => 'ProductController@store',
     'as' => 'admin.products.store'
 ]);
 
 Route::put('product/update/{product}', [
-    'uses' => 'Admin\ProductController@update',
+    'uses' => 'ProductController@update',
     'as' => 'admin.products.update'
 ]);
 
 Route::delete('product/delete/{product}', [
-    'uses' => 'Admin\ProductController@destroy',
+    'uses' => 'ProductController@destroy',
     'as' => 'admin.product.destroy'
 ]);
 
 
 // RUTAS PARA Categorias
-Route::resource('admin/category', 'Admin\CategoryController');
+Route::resource('category', 'CategoryController');
 
-Route::get('admin/category',[
-    'uses' => 'Admin\CategoryController@index',
+Route::get('category',[
+    'uses' => 'CategoryController@index',
     'as' => 'admin.category.index'
 ]);
 
 Route::get('category/edit/{category}', [
-    'uses' => 'Admin\CategoryController@edit',
+    'uses' => 'CategoryController@edit',
     'as' => 'admin.category.edit'
 ]);
 
 Route::put('category/update/{category}', [
-    'uses' => 'Admin\CategoryController@update',
+    'uses' => 'CategoryController@update',
     'as' => 'admin.category.update'
 ]);
 
 Route::delete('category/delete/{category}', [
-    'uses' => 'Admin\CategoryController@destroy',
+    'uses' => 'CategoryController@destroy',
     'as' => 'admin.category.destroy'
 ]);
 
 
 /*/---- RUTAS DEL SLIDER*/
 
-Route::resource('admin/sliders', 'Admin\SliderController');
+Route::resource('sliders', 'SliderController');
 
-Route::get('admin/sliders',[
-    'uses' => 'Admin\SliderController@index',
+Route::get('sliders',[
+    'uses' => 'SliderController@index',
     'as' => 'admin.sliders.index'
 ]);
 
 Route::get('sliders/edit/{slider}', [
-    'uses' => 'Admin\SliderController@edit',
+    'uses' => 'SliderController@edit',
     'as' => 'admin.sliders.edit'
 ]);
 
 Route::put('sliders/update/{slider}', [
-    'uses' => 'Admin\SliderController@update',
+    'uses' => 'SliderController@update',
     'as' => 'admin.sliders.update'
 ]);
 
 Route::delete('sliders/delete/{slider}', [
-    'uses' => 'Admin\SliderController@destroy',
+    'uses' => 'SliderController@destroy',
     'as' => 'admin.sliders.destroy'
 ]);
 
-
-
-
-
 //Ruta del USUARIO
-Route::resource('admin/user', 'Admin\UserController');
+Route::resource('user', 'UserController');
 
 Route::get('user/index', [
-    'uses' => 'Admin\UserController@index',
+    'uses' => 'UserController@index',
     'as' => 'admin.user.index'
 ]);
 
 Route::get('user/edit/{user}', [
-    'uses' => 'Admin\UserController@edit',
+    'uses' => 'UserController@edit',
     'as' => 'admin.user.edit'
 ]);
 
 Route::put('user/update/{user}', [
-    'uses' => 'Admin\UserController@update',
+    'uses' => 'UserController@update',
     'as' => 'admin.user.update'
 ]);
 
 Route::delete('user/delete/{user}', [
-    'uses' => 'Admin\UserController@destroy',
+    'uses' => 'UserController@destroy',
     'as' => 'admin.user.destroy'
 ]);
+
+});
 
 //Generar PDF
 Route::get('pdf-factura', [
