@@ -46,7 +46,7 @@ class Authenticate
         
         if(auth()->user()->type != 'admin'){
             $message = 'Permiso denegado: Solo los administradores pueden entrar a esta sección';
-            return redirect()->route('index')->with('message', $message);
+            return redirect()->route('home')->with('message', $message);
         }
 
         return $next($request);
